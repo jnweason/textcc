@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Bean Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 導覽列 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">購物網站</a>
+
+        <!-- 搜尋欄位 -->
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="搜尋商品" aria-label="搜尋">
+            <button class="btn btn-outline-success" type="submit">搜尋</button>
+        </form>
+
+        <!-- 會員驗證與顯示 -->
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            echo '<div class="d-flex align-items-center ms-auto">
+                      <span class="me-2">' . $username . '</span>
+                      <img src="member-icon.png" width="30" height="30" alt="會員圖示">
+                  </div>';
+        } else {
+            echo '<div class="d-flex align-items-center ms-auto">
+                      <a href="login.php" class="btn btn-primary">登入</a>
+                  </div>';
+        }
+        ?>
+    </div>
+</nav>
+  <!-- 頁面內容 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <div class="item">
+          <div class="card">
+            <img src="img/006666-.jpg" class="card-img-top" alt="生基代銷" width="80px" height="250px">
+            <div class="card-body">
+              <h5 class="card-title">長生園永久使用權狀</h5>
+              <p class="card-text"><span class="font-weight-bold">憑證編號:</span> 006666 (鐵支號)</p>
+              <p class="card-text"><span class="font-weight-bold">位別:</span> 吉利號，吉位</p>
+              <p class="card-text"><span class="font-weight-bold">委託代銷欲售價:</span> 電洽持有人議價</p>
+              <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="decrease">-</button>
+                <input type="text" class="form-control quantity-input" value="1" readonly>
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="increase">+</button>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart" data-product="A">加入購物車</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="item">
+          <div class="card">
+            <img src="img/006666-.jpg" class="card-img-top" alt="生基代銷" width="80px" height="250px">
+            <div class="card-body">
+              <h5 class="card-title">長生園永久使用權狀</h5>
+              <p class="card-text"><span class="font-weight-bold">憑證編號:</span> 006666 (鐵支號)</p>
+              <p class="card-text"><span class="font-weight-bold">位別:</span> 吉利號，吉位</p>
+              <p class="card-text"><span class="font-weight-bold">委託代銷欲售價:</span> 電洽持有人議價</p>
+              <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="decrease">-</button>
+                <input type="text" class="form-control quantity-input" value="1" readonly>
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="increase">+</button>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart" data-product="A">加入購物車</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="item">
+          <div class="card">
+            <img src="img/006666-.jpg" class="card-img-top" alt="生基代銷" width="80px" height="250px">
+            <div class="card-body">
+              <h5 class="card-title">長生園永久使用權狀</h5>
+              <p class="card-text"><span class="font-weight-bold">憑證編號:</span> 006666 (鐵支號)</p>
+              <p class="card-text"><span class="font-weight-bold">位別:</span> 吉利號，吉位</p>
+              <p class="card-text"><span class="font-weight-bold">委託代銷欲售價:</span> 電洽持有人議價</p>
+              <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="decrease">-</button>
+                <input type="text" class="form-control quantity-input" value="1" readonly>
+                <button class="btn btn-outline-secondary quantity-btn" type="button" data-product="A"
+                  data-action="increase">+</button>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart" data-product="A">加入購物車</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 類似的程式碼重複兩次，用於展示其他兩個產品 -->
+
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <h4>購物車清單</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>產品</th>
+              <th>數量</th>
+              <th>價格</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- 購物車項目會動態添加至這裡 -->
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="checkout-btn">送出訂單</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JA腳本 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // 數量調節按鈕點擊事件
+      $('.quantity-btn').click(function() {
+        var input = $(this).closest('.card-body').find('.quantity-input');
+        var currentValue = parseInt(input.val());
+        var newValue = currentValue;
+
+        if ($(this).data('action') === 'increase') {
+          newValue = currentValue + 1;
+        } else if ($(this).data('action') === 'decrease') {
+          if (currentValue > 1) {
+            newValue = currentValue - 1;
+          }
+        }
+
+        input.val(newValue);
+      });
+
+      // 加入購物車按鈕點擊事件
+      $('.add-to-cart').click(function() {
+        var product = $(this).data('product');
+        var quantity = $(this).closest('.card-body').find('.quantity-input').val();
+        addToCart(product, quantity);
+      });
+
+      // 送出訂單按鈕點擊事件
+      $('#checkout-btn').click(function() {
+        checkout();
+      });
+
+      // 添加商品至購物車
+      function addToCart(product, quantity) {
+        var item = '<tr><td>' + product + '</td><td>' + quantity + '</td><td>$' + calculatePrice(product, quantity) +
+          '</td></tr>';
+        $('#cart-items').append(item);
+      }
+
+      // 計算商品價格
+      function calculatePrice(product, quantity) {
+        // 根據商品和數量計算價格，這裡僅作示範
+        // 可以根據實際需求進行修改
+        var price = 0;
+        if (product === 'A') {
+          price = 10;
+        } else if (product === 'B') {
+          price = 15;
+        } else if (product === 'C') {
+          price = 20;
+        }
+        return price * quantity;
+      }
+
+      // 送出訂單
+      function checkout() {
+        // 可以在這裡實現發送E-mail的相關邏輯
+        // 使用AJAX向後端發送訂單數據，然後後端處理E-mail發送
+        // 這裡僅作示範，請根據實際需求進行修改
+        var orderDetails = $('#cart-items').html();
+        $.ajax({
+          type: 'POST',
+          url: 'send_order_email.php',
+          data: {
+            orderDetails: orderDetails
+          },
+          success: function(response) {
+            alert('訂單已成功送出！');
+          },
+          error: function() {
+            alert('發送訂單時出錯，請稍後再試。');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
