@@ -21,21 +21,6 @@
             <button class="btn btn-outline-success" type="submit">搜尋</button>
         </form>
 
-        <!-- 會員驗證與顯示 -->
-        <?php
-        session_start();
-        if (isset($_SESSION['username'])) {
-            $username = $_SESSION['username'];
-            echo '<div class="d-flex align-items-center ms-auto">
-                      <span class="me-2">' . $username . '</span>
-                      <img src="member-icon.png" width="30" height="30" alt="會員圖示">
-                  </div>';
-        } else {
-            echo '<div class="d-flex align-items-center ms-auto">
-                      <a href="login.php" class="btn btn-primary">登入</a>
-                  </div>';
-        }
-        ?>
     </div>
 </nav>
   <!-- 頁面內容 -->
