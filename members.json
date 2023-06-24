@@ -1,17 +1,37 @@
 [
     {
-      "name": "John",
-      "gender": "Male",
-      "birthday": "1990-01-01",
-      "phone": "1234567890",
-      "email": "john@example.com"
+      "username": "user1",
+      "password": "password1",
+      "phone": "123456789",
+      "email": "user1@example.com",
+      "gender": "Male"
     },
     {
-      "name": "Jane",
-      "gender": "Female",
-      "birthday": "1995-05-05",
-      "phone": "0987654321",
-      "email": "jane@example.com"
+      "username": "user2",
+      "password": "password2",
+      "phone": "987654321",
+      "email": "user2@example.com",
+      "gender": "Female"
     },
-    // 其他會員資料...
+    {
+      "username": "user3",
+      "password": "password3",
+      "phone": "555555555",
+      "email": "user3@example.com",
+      "gender": "Male"
+    },
+    {
+      "username": "user4",
+      "password": "password4",
+      "phone": "111111111",
+      "email": "user4@example.com",
+      "gender": "Female"
+    },
+    {
+      "username": "user5",
+      "password": "password5",
+      "phone": "999999999",
+      "email": "user5@example.com",
+      "gender": "Male"
+    }
   ]
