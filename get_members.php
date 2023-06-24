@@ -1,6 +1,6 @@
 <?php
 // 設定正確的檔案路徑
-$filePath = 'members.json';
+$filePath = 'data/members.json';
 
 // 檢查檔案是否存在
 if (file_exists($filePath)) {
